@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://127.0.0.1:5500/index.html# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Khanyisa's Profile</title>
+    <link rel="stylesheet" href="./Khanyisa&#39;s Profile_files/style.css">
+ </head>
+
+ <body>
+    <div id="header">
+      <div class="container">
+         <nav>
+            <img src="./Khanyisa&#39;s Profile_files/logo.png" class="logo">
+            <ul>
+               <li><a href="http://127.0.0.1:5500/index.html#"> Home</a></li>
+               <li><a href="http://127.0.0.1:5500/index.html#"> About me</a></li>
+               <li><a href="http://127.0.0.1:5500/index.html#"> Education</a></li>
+               <li><a href="http://127.0.0.1:5500/index.html#"> Projects</a></li>
+               <li><a href="http://127.0.0.1:5500/index.html#"> Certifications </a></li>
+               <li><a href="http://127.0.0.1:5500/index.html#"> Skills</a></li>
+               <li><a href="http://127.0.0.1:5500/index.html#"> Contacts</a></li>
+
+                
+            </ul>
+         </nav>
+         <div class="header-text">
+            <p> Computer Science Freak<br> Aspiring Software Engineer </p>
+            <h1> Hey,I'm <span> Khanyisa </span><br>from South Africa</h1>
+         </div>
+
+      </div>
+
+    </div> 
+    <!-----------------about------------>
+
+    <div id="about">
+      <div class="container">
+         <div class="row">
+            <div class="about-col-1">
+               <img src="./Khanyisa&#39;s Profile_files/aboutme.png">
+            </div>
+            <div class="about-col-2">
+               <h1 class="sub-title">About Me</h1>
+               <p>I am a graduate in mathematical science with a keen interest in pursuing a career in software engineering.
+                   During my undergraduate years, I actively participated in several tech hackathons, igniting my passion for computer science. 
+                  Additionally, I enrolled in various computer science modules to align myself with the software engineering domain.</p>
+            </div>
+         </div>
+
+      </div>
+    </div>
+   
+ <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+ <footer>
+    
+ </footer>
+ </body></html>
