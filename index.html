@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
  <html lang="en">
  <head>
     <meta charset="UTF-8">
@@ -9,21 +9,37 @@
  </head>
 
  <body>
+   <!--------------------------------------------------Navigation BAR------------------------------------------------------------>
+   <nav>
+      <img src="images/looogo.png" class="logo">
+      <ul class="sidebar ">
+         <li onclick=hideSidebar()><a href="#"></a><svg xmlns="http://www.w3.org/2000/svg" height="42" viewBox="0 -960 960 960" width="42">
+            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" fill="#b3375e"/></svg> </li>
+         <li><a href="#header"> Home</a></li>
+         <li><a href="#about"> About me</a></li>
+         <li><a href="#projects"> Projects </a></li>
+         <li><a href="#services"> Services</a></li>
+         <li><a href="#contacts"> Contacts</a></li>
+
+          
+      </ul>
+      <ul>
+         <li class="hideOnMobile"><a href="#header"> Home</a></li>
+         <li class="hideOnMobile"><a href="#about"> About me</a></li>
+         <li class="hideOnMobile"><a href="#projects"> Projects </a></li>
+         <li class="hideOnMobile"><a href="#services"> Services</a></li>
+         <li class="hideOnMobile"><a href="#contacts"> Contacts</a></li>
+         <li class="menu-button" onclick=showSidebar()><a href="#"></a><svg xmlns="http://www.w3.org/2000/svg" height="40"
+             viewBox="0 -960 960 960" width="40"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" fill="#b3375e"/></svg></li>
+
+          
+      </ul>
+   </nav>
+      <!--------------------------------------------------header------------------------------------------------------------>
     <div id="header">
       <div class="container">
-         <!--------------------------------------------------Navigation BAR------------------------------------------------------------>
-         <nav>
-            <img src="images/looogo.png" class="logo">
-            <ul>
-               <li><a href="#header"> Home</a></li>
-               <li><a href="#about"> About me</a></li>
-               <li><a href="#projects"> Projects </a></li>
-               <li><a href="#services"> Services</a></li>
-               <li><a href="#contacts"> Contacts</a></li>
-
-                
-            </ul>
-         </nav>
+         
+          
          <div class="header-text">
             <p> Computer Science Freak<br> Aspiring Software Engineer </p>
             <h1> Hey,I'm <span> Khanyisa </span><br>from South Africa</h1>
