@@ -1,4 +1,4 @@
-
+ 
 *{
     margin:0;
     padding: 0;
@@ -17,6 +17,7 @@
     height: 100vh;
     background-image: url(images/khanyi.png);
     background-size: cover ;
+    background-repeat: no-repeat;
     background-position: center;
 
  }
@@ -26,10 +27,9 @@
 
  }
  nav{
-     
-  position: sticky;
-  top: 0;
   
+  background-color:#262626;
+  top: 0;
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -41,11 +41,12 @@ nav ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    
 }
 
 
  .logo{
-    width: 160px;
+    width: 110px;
     
 
  }
@@ -77,6 +78,33 @@ nav ul {
  nav ul li a:hover::after{
     width: 100%;
 
+ }
+ .sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: #2626261f;
+    backdrop-filter: blur(10px);
+    box-shadow: #2626261f;
+    display:none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+
+ }
+ .sidebar li{
+    width: 100%;
+ }
+ .sidebar a{
+    width: 100%;
+ }
+ .menu-button{
+    display: none;
+    color: white
  }
 
  .header-text{
@@ -408,64 +436,22 @@ nav ul {
     color: #ff004f;
  }
 
-/* -----------------------------------CSS for small screen---------------------- */
- 
- /*small*/
- 
-@media screen and (min-width:576px) {
-    body{
-        background-color: #080808;
+
+    @media (max-width:800px) {
+        .hideOnMobile{
+            display: none;
+        }
+        .menu-button{
+            display: block;
+
+        }
         
-
     }
-    nav{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-}
-    /* medium */
-    @media screen and (min-width:768px) {
-        body{
-            background-color: #080808;
-        }
+    @media(max-width:400px){
+        .sidebar{
+            width: 100%;
 
-        nav{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
         }
-
-    }
-    /*Large*/
-    @media screen and (min-width:992px) {
-        body{
-            background-color: #080808;
-        }
-
-        nav{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-    }
-    /*MOBILE DEVICE LANDSACAPE*/
-    @media screen and (max-height:425px)and (min-aspect-ratio:7/4) {
-        body{
-            background-color: #080808;
-        }
-
-        nav{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
     }
 
 
