@@ -30,6 +30,7 @@ jobs:
           cp style.css _site/
           cp script.js _site/
           cp -r images _site/
+          find _site/images -type f -iname '*.pdf' -delete
           touch _site/.nojekyll
 
       - name: Upload Pages artifact
