@@ -1,230 +1,438 @@
-   <!DOCTYPE html>
- <html lang="en">
- <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Khanyisa's Profile</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/ca886366d8.js" crossorigin="anonymous"></script>
- </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Khanyisa Faith Mokgolobotho is a Software Engineer and AI Builder creating intelligent, scalable systems with real-world impact."
+  >
+  <title>Khanyisa Faith Mokgolobotho | Software Engineer | AI Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Orbitron:wght@600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/ca886366d8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Khanyisa home">
+        <span class="brand-mark">KF</span>
+        <span class="brand-copy">
+          <strong>KHANYISA://BIO</strong>
+          <small>Intelligent systems. Real-world impact.</small>
+        </span>
+      </a>
 
- <body>
-   <!--------------------------------------------------Navigation BAR------------------------------------------------------------>
-   <nav>
-      <img src="images/looogo.png" class="logo">
-      <ul class="sidebar ">
-         <li onclick=hideSidebar()><a href="#"></a><svg xmlns="http://www.w3.org/2000/svg" height="42" viewBox="0 -960 960 960" width="42">
-            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" fill="#b3375e"/></svg> </li>
-         <li><a href="#header"> Home</a></li>
-         <li><a href="#about"> About me</a></li>
-         <li><a href="#projects"> Projects </a></li>
-         <li><a href="#contacts"> Contacts</a></li>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="Toggle navigation"
+      >
+        <span></span>
+        <span></span>
+      </button>
 
-          
-      </ul>
-      <ul>
-         <li class="hideOnMobile"><a href="#header"> Home</a></li>
-         <li class="hideOnMobile"><a href="#about"> About me</a></li>
-         <li class="hideOnMobile"><a href="#projects"> Projects </a></li>
-         <li class="hideOnMobile"><a href="#contacts"> Contacts</a></li>
-         <li class="menu-button" onclick=showSidebar()><a href="#"></a><svg xmlns="http://www.w3.org/2000/svg" height="40"
-             viewBox="0 -960 960 960" width="40"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" fill="#b3375e"/></svg></li>
+      <nav class="nav-links" id="site-nav">
+        <a href="#bio">Bio</a>
+        <a href="#builds">Builds</a>
+        <a href="#stack">Stack</a>
+        <a href="#protocol">Protocol</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-          
-      </ul>
-   </nav>
-      <!--------------------------------------------------header------------------------------------------------------------>
-    <div id="header">
-      <div class="container">
-         
-          
-         <div class="header-text">
-             <p>AI Enthusiast | Junior Software Engineer</p>
-            <h1>Hey, I'm <span>Khanyisa</span><br>Passionate About Inclusive Innovation</h1>
+    <main>
+      <section class="section hero" id="home">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow">MISSION STATUS // ONLINE</p>
+          <h1 class="hero-name">
+            <span class="hero-name-line">Khanyisa Faith</span>
+            <span class="hero-name-line hero-name-line-accent">Mokgolobotho</span>
+          </h1>
+          <p class="hero-role">Software Engineer | AI Builder | 6x Hackathon Winner</p>
+          <p class="hero-summary">
+            I design and build intelligent, scalable digital systems powered by artificial
+            intelligence, focused on solving real-world problems with precision, speed,
+            and impact.
+          </p>
 
-         </div>
-
-      </div>
-
-    </div> 
-    <!---------------------------------------------------------------about--------------------------------------------------------->
-
-    <div id="about">
-      <div class="container">
-         <div class="row">
-            <div class="about-col-1">
-               <img src="images/aboutme.png"  >
-            </div>
-            <div class="about-col-2">
-               <h1 class="sub-title">About Me</h1>
-               <p class="sub-text">
-                  I am Khanyisa Faith Mokgolobotho,
-                  a young Black South African and Junior Software Engineer with 
-                  experience at Pycentric Pty Ltd and the CSIR NICIS SANReN team. 
-                  My tech stack includes Python (FastAPI, Streamlit), Flutter, Firebase, 
-                  MongoDB, Google Cloud, Angular, Java Spring Boot, PHP, and SQL. 
-                  I am a 3x Hackathon winner, Chairperson of the Student Geekulcha Society, 
-                  and former SRC Residence Officer. Passionate about AI, healthtech, 
-                  and inclusive innovation, I create, maintain, and deploy Docker containers 
-                  and hold a Kubernetes certificate. I believe in continuous 
-                  learning and building meaningful solutions that drive real impact.
-               </p>
-
-            
-            <!----------------------------------------------Skills------------------------------------------------------------------>
-            <div class="tab-titles">
-               <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-               <p class="tab-links" onclick="opentab('experience')">Experience</p>
-               <p class="tab-links" onclick="opentab('education')">Education</p>
-            </div>
-             <!-------tab contents skills----->
-             <div class="tab-contents active-tab" id="skill">
-               <ul>
-                  <li><span>Python (FastAPI, Streamlit)</span><br>Build robust APIs and dashboards</li>
-                  <li><span>Flutter & Firebase</span><br>Cross-platform mobile app development</li>
-                  <li><span>MongoDB & SQL</span><br>Database design and management</li>
-                  <li><span>Docker & Kubernetes</span><br>Containerization and orchestration</li>
-                  <li><span>Linux & Shell Scripting</span><br>Run applications, manage servers, automate tasks</li>
-                  <li><span>Virtualization & VMware</span><br>High-availability cluster management</li>
-                  <li><span>OpenStack & Cloud Platforms</span><br>Deploy and manage scalable infrastructure</li>
-                  <li><span>Google Cloud</span><br>Cloud deployment and services</li>
-                  <li><span>Angular, Java, Spring Boot</span><br>Enterprise application development</li>
-                  <li><span>Git</span><br>Version control and collaboration</li>
-               </ul>
-               </div>
-
-
-             <!-------tab contents Experience----->
-             <div class="tab-contents" id="experience">
-               <ul>
-                 <li><span>2025 – Present</span><br>
-                     Junior Software Engineer – CSIR NICIS SANReN Team<br>
-                     - Developed backend services using Python and FastAPI<br>
-                     - Worked extensively with Docker for containerization<br>
-                     - Managed virtualization and high-availability VMware clusters<br>
-                     - Deployed and maintained OpenStack cloud environments<br>
-                     - Ran and supported Linux-based applications and servers<br>
-                     - Contributed to research-driven software solutions for national infrastructure
-                     </li>
-
-                  <li><span>2024</span><br>
-                     Graduate Software Engineer Intern – Pycentric Pty Ltd<br>
-                     - Built mobile and web applications using Flutter, FastAPI, and Streamlit<br>
-                     - Used Pydantic and the PydanticAI framework to develop AI agents<br>
-                     - Created and maintained Docker containers and images for deployment<br>
-                     - Focused on delivering client-ready, production-grade solutions
-                     </li>
-                  <li><span>2023–2024</span><br>SRC Residence Officer – Sefako Makgatho Health Sciences University<br>
-                     - Led housing advocacy and student services
-                  </li>
-                  <li><span>2025 – Present</span><br>Chairperson – SMU Geekulcha Student Society<br>
-                     - Promoting tech awareness and healthtech innovation on campus
-                  </li>
-                  <li><span>2021–2022</span><br>Residence Sports Officer – Sefako Makgatho Health Sciences University</li>
-                  <li><span>2023</span><br>Student Tutor – Sefako Makgatho Health Sciences University</li>
-                  <li><span>July 2023</span><br>Student Vacation Work – South African Radio Astronomy Observatory (SARAO)</li>
-                  <li><span>July 2023</span><br>Job Shadow – Korbistat</li>
-               </ul>
-               </div>
-
-             <!-------tab contents Education----->
-             <div class="tab-contents" id="education">
-               <ul><li><span>2020-2023</span> <br>Bachelor of Science Mathematical and Computer science</li>
-               
-                    
-               </ul>
-             </div>
-            
-            </div>
-         </div>
-
-      </div>
-    </div>
-
-    
- 
-   <!-----------------Projects-------------------->
-   <div id="projects">
-      <div class="container">
-         <h1 class="sub-title"> My Work</h1>
-          
-          <div class="work-list">
-            <div class="work">
-               <img src="images/mywork-1.png"  >
-               <div class="layer">
-                  <h3>Portfolio website</h3>
-                  <p>I created my personal portfolio website as an aspiring software engineer to
-                      provide recruiters with access to the information they need from a
-                       CV while offering an interactive experience showcasing my work. </p>
-                  <a href=""><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-               </div>
-            </div>
-            <div class="work">
-               <img src="images/mywork-2 - Copy.png"  >
-               <div class="layer">
-                  <h3>University Chatbot</h3>
-                  <p>This ChatBot was created for university students 
-                     to have quick and easy access to university resources and updates without
-                      the need to visit the university websites.</p>
-                  <a href=""><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-               </div>
-            </div>
-            <div class="work">
-               <img src="images/mywork-3 - Copy.png"  >
-               <div class="layer">
-                  <h3>E-commerse website</h3>
-                  <p>Created the e-commerce platform to transition small businesses to the web. 
-                     It enables entrepreneurs to sell their products and analyze data to 
-                     identify which products are selling more.</p>
-                  <a href=""><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-               </div>
-            </div>
-
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contact">Open Contact Terminal</a>
+            <span class="button button-secondary button-placeholder" aria-disabled="true">
+              GitHub Access on Request
+            </span>
+            <span class="button button-secondary button-placeholder" aria-disabled="true">
+              Resume Shared on Request
+            </span>
           </div>
-      <a href="https://github.com/khanyisaMokgolobotho" class="btn">See More</a>
-      </div>
-   </div>
 
-   <!--------------------------------------------------------------Contacts--------------------------------------------------------->
-   <div id="contacts">
-      <div class="container">
-         <div class="row">
-            <div class="contact-left">
-               <h1 class="sub-title">Contact Me</h1>
-               <p><i class="fa-regular fa-envelope"></i>khanyisafaithmokgolobotho@gmail.com</p>
-               <p> <i class="fa-solid fa-phone"></i>+27683513688</p>
-               <div class="social-icons">
-                  <a href="https://www.instagram.com/khanyisa_faith.mokgolobotho/?utm_source=qr&igsh=MzNlNGNkZWQ4Mg%3D%3D"><i class="fa-brands fa-instagram"></i></a>
-                  <a href=" https://twitter.com/KhanyisaFaith"><i class="fa-brands fa-x-twitter"></i></i></a>
-                  <a href=" https://www.linkedin.com/feed/"><i class="fa-brands fa-linkedin"></i></i></a>
-                  <a href="https://github.com/khanyisaMokgolobotho"><i class="fa-brands fa-github"></i></i></i></a>
-               </div>
+          <div class="tag-cluster">
+            <span class="tag">AI-Powered Systems</span>
+            <span class="tag">Cloud-Native Builds</span>
+            <span class="tag">Secure Backends</span>
+            <span class="tag">Full-Stack Delivery</span>
+          </div>
 
-                <a href="images/khanyisa M resume.pdf" download class="btn btn2" >Download Resume</a>
+          <div class="hero-stats">
+            <article class="stat-card" data-reveal>
+              <p class="stat-value" data-count="6" data-pad="2" data-suffix="x">00x</p>
+              <p class="stat-label">Hackathon wins earned through rapid execution</p>
+            </article>
+            <article class="stat-card stat-card-text" data-reveal>
+              <p class="stat-value">AI</p>
+              <p class="stat-label">Built into systems where intelligence matters</p>
+            </article>
+            <article class="stat-card stat-card-text" data-reveal>
+              <p class="stat-value">Scale</p>
+              <p class="stat-label">Architecture designed for speed, growth, and reliability</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <article class="portrait-card" data-reveal>
+            <div class="portrait-status">
+              <span class="status-dot"></span>
+              <span>Build Mode Active</span>
             </div>
-            <div class="contact-right">
-               <form>
-                  <input type="text" name="Name" placeholder="Your Name" required>
-                  <input type="email" name="email" placeholder="Your Email" required>
-                  <textarea name="Message"   rows="6" placeholder="Your Message"></textarea>
-                  <button type="submit" class="btn btn2">Submit</button>
-               </form>
-
+            <img
+              src="images/aboutme.png"
+              alt="Portrait of Khanyisa Faith Mokgolobotho"
+            >
+            <div class="portrait-footer">
+              <p>Operator</p>
+              <strong>Khanyisa // AI Engineer Track</strong>
             </div>
-         </div>
-      </div>
- <!---------------------------------------------------Copright section---------------------------------------------------------------->
+          </article>
 
- <div class="copyright">
-   <p>Copyright © Khanyisa. Made with <i class="fa-solid fa-heart"></i> by Khanyisa Mokgolobotho</p>
- </div>
-   </div>
+          <article class="terminal-card" data-reveal>
+            <div class="terminal-header">
+              <div class="terminal-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <p>khanyisa@portfolio:~</p>
+            </div>
+            <div class="terminal-body">
+              <p><span class="prompt">C:\&gt;</span> boot profile.exe</p>
+              <ul class="terminal-feed">
+                <li><span>role</span><strong>Software Engineer | AI Builder</strong></li>
+                <li><span>focus</span><strong>AI, automation, scalable systems</strong></li>
+                <li><span>mission</span><strong>Build precise systems with real impact</strong></li>
+              </ul>
+              <p class="terminal-output" id="terminal-output">
+                Loading intelligent systems...
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
 
-   <script src="script.js" defer></script>
+      <section class="section" id="bio">
+        <div class="section-heading" data-reveal>
+          <p class="section-index">01</p>
+          <div>
+            <p class="section-kicker">BIO MODULE</p>
+            <h2>Engineer profile loaded.</h2>
+            <p class="section-copy">
+              Software engineering, artificial intelligence, and real-world problem solving
+              sit at the center of every system I build.
+            </p>
+          </div>
+        </div>
 
- </body>
+        <div class="bio-grid">
+          <article class="story-card" data-reveal>
+            <p>
+              I am a Software Engineer with a strong focus on building intelligent systems
+              that combine software engineering, artificial intelligence, and real-world
+              problem solving.
+            </p>
+            <p>
+              As a 6x hackathon winner, I have consistently demonstrated the ability to
+              design, develop, and deliver high-impact solutions under pressure, turning
+              complex ideas into working systems.
+            </p>
+            <p>
+              My work centers around creating scalable, user-focused applications that
+              integrate AI, automation, and modern software architecture to solve
+              meaningful challenges.
+            </p>
+            <p>
+              I approach every build with a mindset of innovation, efficiency, and
+              long-term impact.
+            </p>
+          </article>
 
- <footer>
-    
- </footer>
- </html>
+          <aside class="signal-card" data-reveal>
+            <p class="signal-label">ACHIEVEMENT UNLOCKED</p>
+            <h3>6x Hackathon Winner</h3>
+            <ul class="signal-list">
+              <li>Pressure-tested delivery across fast-moving builds</li>
+              <li>Strong systems thinking backed by practical execution</li>
+              <li>Focused on AI, automation, and meaningful technology</li>
+              <li>Building for scale, usability, and long-term value</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="builds">
+        <div class="section-heading" data-reveal>
+          <p class="section-index">02</p>
+          <div>
+            <p class="section-kicker">BUILD MATRIX</p>
+            <h2>What I build.</h2>
+            <p class="section-copy">
+              From AI products to secure backend platforms, I design systems that turn
+              ambitious ideas into production-ready experiences.
+            </p>
+          </div>
+        </div>
+
+        <div class="capability-grid">
+          <article class="capability-card" data-reveal>
+            <i class="fa-solid fa-robot capability-icon" aria-hidden="true"></i>
+            <h3>AI-powered applications</h3>
+            <p>NLP, speech processing, and intelligent agents built for real use cases.</p>
+          </article>
+          <article class="capability-card" data-reveal>
+            <i class="fa-solid fa-language capability-icon" aria-hidden="true"></i>
+            <h3>Multilingual systems</h3>
+            <p>Real-time translation platforms and experiences designed for accessibility.</p>
+          </article>
+          <article class="capability-card" data-reveal>
+            <i class="fa-solid fa-chart-line capability-icon" aria-hidden="true"></i>
+            <h3>Data-driven systems</h3>
+            <p>Analytics dashboards and insights pipelines that support clear decisions.</p>
+          </article>
+          <article class="capability-card" data-reveal>
+            <i class="fa-solid fa-microchip capability-icon" aria-hidden="true"></i>
+            <h3>Intelligent automation</h3>
+            <p>AI agents and automation tools that remove friction and accelerate work.</p>
+          </article>
+          <article class="capability-card" data-reveal>
+            <i class="fa-solid fa-mobile-screen-button capability-icon" aria-hidden="true"></i>
+            <h3>Mobile applications</h3>
+            <p>Seamless mobile experiences focused on usability, speed, and adoption.</p>
+          </article>
+          <article class="capability-card" data-reveal>
+            <i class="fa-solid fa-globe capability-icon" aria-hidden="true"></i>
+            <h3>Full-stack web applications</h3>
+            <p>Interactive products spanning frontend, backend, APIs, and deployment.</p>
+          </article>
+          <article class="capability-card" data-reveal>
+            <i class="fa-solid fa-shield-halved capability-icon" aria-hidden="true"></i>
+            <h3>Secure backend systems</h3>
+            <p>Modern backend services built with scalability, safety, and maintainability.</p>
+          </article>
+          <article class="capability-card" data-reveal>
+            <i class="fa-solid fa-cloud capability-icon" aria-hidden="true"></i>
+            <h3>Cloud-native systems</h3>
+            <p>Distributed platforms designed for resilience, orchestration, and growth.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="stack">
+        <div class="section-heading" data-reveal>
+          <p class="section-index">03</p>
+          <div>
+            <p class="section-kicker">TECH ARSENAL</p>
+            <h2>Stack and tools.</h2>
+            <p class="section-copy">
+              I work across the full software lifecycle with a stack tuned for intelligent,
+              scalable systems.
+            </p>
+          </div>
+        </div>
+
+        <div class="stack-grid">
+          <article class="stack-card" data-reveal>
+            <h3>Programming Languages</h3>
+            <div class="stack-tags">
+              <span>Python</span>
+              <span>Java</span>
+              <span>Dart</span>
+              <span>JavaScript</span>
+              <span>TypeScript</span>
+              <span>SQL</span>
+            </div>
+          </article>
+          <article class="stack-card" data-reveal>
+            <h3>Backend and APIs</h3>
+            <div class="stack-tags">
+              <span>FastAPI</span>
+              <span>Node.js</span>
+              <span>Spring Boot</span>
+            </div>
+          </article>
+          <article class="stack-card" data-reveal>
+            <h3>Frontend and Mobile</h3>
+            <div class="stack-tags">
+              <span>Flutter</span>
+              <span>React</span>
+              <span>Angular</span>
+            </div>
+          </article>
+          <article class="stack-card" data-reveal>
+            <h3>AI and Machine Learning</h3>
+            <div class="stack-tags">
+              <span>TensorFlow</span>
+              <span>PyTorch</span>
+              <span>NLP</span>
+              <span>Computer Vision</span>
+              <span>Speech Recognition</span>
+              <span>AI Agent Systems</span>
+            </div>
+          </article>
+          <article class="stack-card" data-reveal>
+            <h3>Cloud and DevOps</h3>
+            <div class="stack-tags">
+              <span>AWS</span>
+              <span>Google Cloud</span>
+              <span>Docker</span>
+              <span>Kubernetes</span>
+              <span>CI/CD Pipelines</span>
+            </div>
+          </article>
+          <article class="stack-card" data-reveal>
+            <h3>Databases</h3>
+            <div class="stack-tags">
+              <span>MongoDB</span>
+              <span>Firebase</span>
+              <span>PostgreSQL</span>
+              <span>SQLite</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="protocol">
+        <div class="section-heading" data-reveal>
+          <p class="section-index">04</p>
+          <div>
+            <p class="section-kicker">ENGINEERING PROTOCOL</p>
+            <h2>How I build.</h2>
+            <p class="section-copy">
+              Every system is shaped by performance, safety, clarity, and the people who
+              will actually use it.
+            </p>
+          </div>
+        </div>
+
+        <div class="protocol-grid">
+          <article class="protocol-card" data-reveal>
+            <h3>Core engineering approach</h3>
+            <ul class="principle-list">
+              <li><strong>Scalable</strong><span>Designed for growth from day one</span></li>
+              <li><strong>Efficient</strong><span>Optimized for performance and speed</span></li>
+              <li><strong>Secure</strong><span>Built with modern security practices</span></li>
+              <li><strong>User-Centered</strong><span>Focused on real-world usability</span></li>
+              <li><strong>AI-Driven</strong><span>Leveraging intelligence where it matters most</span></li>
+            </ul>
+          </article>
+
+          <article class="vision-card" data-reveal>
+            <p class="signal-label">VISION</p>
+            <h3>Build the future of intelligent systems.</h3>
+            <p>
+              To contribute to the future of intelligent systems by building technology
+              that is not only advanced, but also accessible, impactful, and capable of
+              solving real problems at scale.
+            </p>
+            <div class="vision-pulse">
+              <span></span>
+              <p>Innovation | Efficiency | Long-term impact</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="contact-terminal terminal-card" data-reveal>
+          <div class="terminal-header">
+            <div class="terminal-lights">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <p>khanyisa@contact:~</p>
+          </div>
+
+          <div class="contact-terminal-body">
+            <p class="section-kicker">CONTACT TERMINAL</p>
+            <h2>Let's connect and build something impactful.</h2>
+            <p class="contact-terminal-copy">
+              Open a conversation, share an idea, or bring me into a build where software,
+              AI, and execution need to come together.
+            </p>
+
+            <div class="terminal-session">
+              <p class="terminal-line"><span class="prompt">C:\&gt;</span> whoami</p>
+              <p class="terminal-response">
+                Khanyisa Faith Mokgolobotho // Software Engineer // AI Builder
+              </p>
+
+              <p class="terminal-line"><span class="prompt">C:\&gt;</span> cat available_channels.txt</p>
+              <ul class="contact-terminal-list">
+                <li>
+                  <span class="terminal-key">EMAIL</span>
+                  <a class="contact-terminal-link" href="mailto:khanyisamokgolobotho@gmail.com">
+                    khanyisamokgolobotho@gmail.com
+                  </a>
+                </li>
+                <li>
+                  <span class="terminal-key">GITHUB</span>
+                  <span class="contact-terminal-muted">
+                    Private repository access shared on request
+                  </span>
+                </li>
+                <li>
+                  <span class="terminal-key">RESUME</span>
+                  <span class="contact-terminal-muted">
+                    Private resume available on request
+                  </span>
+                </li>
+                <li>
+                  <span class="terminal-key">LINKEDIN</span>
+                  <a
+                    class="contact-terminal-link"
+                    href="https://www.linkedin.com/in/khanyisa-faith-mokgolobotho"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    linkedin.com/in/khanyisa-faith-mokgolobotho
+                  </a>
+                </li>
+              </ul>
+
+              <p class="terminal-line"><span class="prompt">C:\&gt;</span> echo "Awaiting connection..."</p>
+              <p class="terminal-response terminal-response-accent">
+                Session ready<span class="terminal-cursor" aria-hidden="true"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <span id="year"></span> Khanyisa Faith Mokgolobotho // Built for intelligent
+        systems and real-world impact.
+      </p>
+    </footer>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
