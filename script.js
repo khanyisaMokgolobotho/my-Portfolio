@@ -3,11 +3,24 @@ document.documentElement.classList.add("js-ready");
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
 const navAnchors = document.querySelectorAll(".nav-links a");
+const quickNavToggle = document.querySelector(".quick-nav-toggle");
+const quickNavPanel = document.querySelector(".quick-nav-panel");
+const quickNavAnchors = document.querySelectorAll(".quick-nav-panel a");
 const revealItems = document.querySelectorAll("[data-reveal]");
 const counterItems = document.querySelectorAll("[data-count]");
 const sections = document.querySelectorAll("main section[id]");
 const terminalOutput = document.getElementById("terminal-output");
 const yearTarget = document.getElementById("year");
+const allNavAnchors = [...navAnchors, ...quickNavAnchors];
+
+function setMenuState(toggle, panel, isOpen) {
+  if (!toggle || !panel) {
+    return;
+  }
+
+  panel.classList.toggle("is-open", isOpen);
+  toggle.setAttribute("aria-expanded", String(isOpen));
+}
 
 if (yearTarget) {
   yearTarget.textContent = new Date().getFullYear();
@@ -15,17 +28,67 @@ if (yearTarget) {
 
 if (navToggle && navLinks) {
   navToggle.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("is-open");
-    navToggle.setAttribute("aria-expanded", String(isOpen));
+    const isOpen = !navLinks.classList.contains("is-open");
+    setMenuState(navToggle, navLinks, isOpen);
   });
 
   navAnchors.forEach((anchor) => {
     anchor.addEventListener("click", () => {
-      navLinks.classList.remove("is-open");
-      navToggle.setAttribute("aria-expanded", "false");
+      setMenuState(navToggle, navLinks, false);
     });
   });
 }
+
+function updateQuickNavVisibility() {
+  if (!quickNavToggle) {
+    return;
+  }
+
+  const shouldShow = window.scrollY > Math.max(window.innerHeight * 0.35, 240);
+  quickNavToggle.classList.toggle("is-visible", shouldShow);
+
+  if (!shouldShow) {
+    setMenuState(quickNavToggle, quickNavPanel, false);
+  }
+}
+
+if (quickNavToggle && quickNavPanel) {
+  quickNavToggle.addEventListener("click", () => {
+    const isOpen = !quickNavPanel.classList.contains("is-open");
+    setMenuState(quickNavToggle, quickNavPanel, isOpen);
+  });
+
+  quickNavAnchors.forEach((anchor) => {
+    anchor.addEventListener("click", () => {
+      setMenuState(quickNavToggle, quickNavPanel, false);
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+
+    if (
+      quickNavPanel.classList.contains("is-open") &&
+      target instanceof Node &&
+      !quickNavPanel.contains(target) &&
+      !quickNavToggle.contains(target)
+    ) {
+      setMenuState(quickNavToggle, quickNavPanel, false);
+    }
+  });
+
+  window.addEventListener("scroll", updateQuickNavVisibility, { passive: true });
+  updateQuickNavVisibility();
+}
+
+window.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") {
+    return;
+  }
+
+  setMenuState(navToggle, navLinks, false);
+  setMenuState(quickNavToggle, quickNavPanel, false);
+});
 
 function animateCounter(counter) {
   const targetValue = Number(counter.dataset.count || "0");
@@ -156,14 +219,12 @@ if ("IntersectionObserver" in window) {
           return;
         }
 
-        const activeLink = document.querySelector(`.nav-links a[href="#${id}"]`);
-
         if (entry.isIntersecting) {
-          navAnchors.forEach((anchor) => anchor.classList.remove("is-active"));
+          allNavAnchors.forEach((anchor) => anchor.classList.remove("is-active"));
 
-          if (activeLink) {
-            activeLink.classList.add("is-active");
-          }
+          document
+            .querySelectorAll(`.nav-links a[href="#${id}"], .quick-nav-panel a[href="#${id}"]`)
+            .forEach((anchor) => anchor.classList.add("is-active"));
         }
       });
     },

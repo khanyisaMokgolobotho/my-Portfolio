@@ -74,12 +74,21 @@ a {
   text-decoration: none;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 button {
   font: inherit;
 }
 
 .page-shell {
   position: relative;
+}
+
+main section[id] {
+  scroll-margin-top: 4rem;
 }
 
 .topbar,
@@ -90,14 +99,15 @@ button {
 }
 
 .topbar {
-  position: sticky;
+  position: absolute;
   top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-top: 1rem;
   padding: 1rem 1.25rem;
   border: 1px solid var(--line);
   border-radius: 24px;
@@ -110,6 +120,7 @@ button {
   display: flex;
   align-items: center;
   gap: 0.9rem;
+  min-width: 0;
 }
 
 .brand-mark {
@@ -133,6 +144,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
+  min-width: 0;
 }
 
 .brand-copy strong {
@@ -209,6 +221,102 @@ button {
   border-radius: 999px;
 }
 
+.quick-nav-toggle {
+  position: fixed;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  z-index: 45;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.78rem 1rem;
+  border: 1px solid rgba(255, 92, 168, 0.28);
+  border-radius: 999px;
+  background: rgba(5, 12, 20, 0.88);
+  color: var(--text);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(18px);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(18px);
+  pointer-events: none;
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.quick-nav-toggle.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.quick-nav-toggle:hover,
+.quick-nav-toggle:focus-visible {
+  border-color: var(--line-strong);
+  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.42);
+}
+
+.quick-nav-ping {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 18px rgba(116, 255, 214, 0.42);
+}
+
+.quick-nav-panel {
+  position: fixed;
+  right: 1.1rem;
+  bottom: 4.8rem;
+  z-index: 44;
+  display: grid;
+  gap: 0.3rem;
+  width: min(220px, calc(100vw - 2rem));
+  padding: 0.65rem;
+  border: 1px solid rgba(255, 92, 168, 0.2);
+  border-radius: 22px;
+  background: rgba(5, 12, 20, 0.94);
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(18px);
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+  pointer-events: none;
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+.quick-nav-panel.is-open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.quick-nav-panel a {
+  padding: 0.78rem 0.85rem;
+  border-radius: 14px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.quick-nav-panel a:hover,
+.quick-nav-panel a:focus-visible,
+.quick-nav-panel a.is-active {
+  background: rgba(255, 92, 168, 0.12);
+  color: var(--text);
+  transform: translateX(2px);
+}
+
 .section {
   padding: 6rem 0 0;
 }
@@ -219,7 +327,21 @@ button {
   gap: 2rem;
   align-items: center;
   min-height: calc(100vh - 7rem);
-  padding-top: 4.2rem;
+  padding-top: 8.75rem;
+}
+
+.hero-copy,
+.hero-panel,
+.stat-card,
+.story-card,
+.signal-card,
+.capability-card,
+.stack-card,
+.protocol-card,
+.vision-card,
+.terminal-card,
+.contact-terminal {
+  min-width: 0;
 }
 
 .eyebrow,
@@ -236,7 +358,8 @@ button {
 
 .hero-copy h1,
 .section-heading h2,
-.contact-panel h2 {
+.contact-panel h2,
+.contact-terminal h2 {
   font-family: var(--display);
   line-height: 1.03;
   text-transform: uppercase;
@@ -303,6 +426,7 @@ button {
   font-family: var(--mono);
   font-size: 0.86rem;
   letter-spacing: 0.08em;
+  text-align: center;
   text-transform: uppercase;
   transition:
     transform 180ms ease,
@@ -552,6 +676,7 @@ button {
 .terminal-feed li {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 1rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid rgba(116, 255, 214, 0.08);
@@ -812,7 +937,7 @@ button {
 .contact-terminal-list li {
   display: grid;
   grid-template-columns: 120px minmax(0, 1fr);
-  align-items: center;
+  align-items: start;
   gap: 1rem;
   padding: 1rem;
   border: 1px solid rgba(255, 92, 168, 0.14);
@@ -899,6 +1024,8 @@ button {
   .hero {
     grid-template-columns: 1fr;
     min-height: auto;
+    gap: 1.6rem;
+    padding-top: 8rem;
   }
 
   .hero-copy h1 {
@@ -908,6 +1035,8 @@ button {
   .hero-panel {
     width: 100%;
     justify-self: stretch;
+    max-width: 38rem;
+    margin-inline: auto;
   }
 
   .capability-grid {
@@ -918,6 +1047,9 @@ button {
 @media (max-width: 860px) {
   .topbar {
     flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 0.95rem 1rem;
+    border-radius: 20px;
   }
 
   .js-ready .nav-toggle {
@@ -930,12 +1062,43 @@ button {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.9rem;
-    padding-top: 0.8rem;
+    gap: 0.35rem;
+    margin-top: 0.3rem;
+    padding-top: 0.95rem;
+    border-top: 1px solid rgba(255, 92, 168, 0.12);
   }
 
   .js-ready .nav-links.is-open {
     display: flex;
+  }
+
+  .js-ready .nav-links a {
+    width: 100%;
+    padding: 0.8rem 0.15rem;
+    font-size: 0.88rem;
+  }
+
+  .brand-copy strong {
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+  }
+
+  .brand-copy small {
+    font-size: 0.69rem;
+  }
+
+  .section {
+    padding-top: 4.5rem;
+  }
+
+  .hero {
+    gap: 1.45rem;
+    padding-top: 7.2rem;
+  }
+
+  .hero-summary {
+    max-width: 100%;
+    font-size: 0.99rem;
   }
 
   .hero-stats,
@@ -945,54 +1108,196 @@ button {
   .contact-grid {
     grid-template-columns: 1fr;
   }
+
+  .stat-card,
+  .story-card,
+  .signal-card,
+  .protocol-card,
+  .vision-card,
+  .contact-terminal-body {
+    padding: 1.35rem;
+  }
 }
 
 @media (max-width: 680px) {
   .topbar,
   .section,
   .site-footer {
-    width: min(1180px, calc(100% - 1.2rem));
+    width: min(1180px, calc(100% - 1rem));
   }
 
   .topbar {
-    top: 0.6rem;
-    padding: 0.9rem 1rem;
+    top: 0.75rem;
+    gap: 0.75rem;
+    padding: 0.8rem 0.9rem;
+    border-radius: 18px;
+  }
+
+  body::before {
+    background-size: 40px 40px;
+  }
+
+  .brand {
+    gap: 0.65rem;
+  }
+
+  .brand-mark {
+    width: 2.65rem;
+    height: 2.65rem;
+    border-radius: 14px;
+    font-size: 0.9rem;
+  }
+
+  .brand-copy strong {
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    line-height: 1.25;
+  }
+
+  .brand-copy small {
+    display: none;
   }
 
   .section {
-    padding-top: 4.75rem;
+    padding-top: 4rem;
   }
 
   .hero {
-    padding-top: 2.5rem;
+    min-height: auto;
+    gap: 1.2rem;
+    padding-top: 6.5rem;
   }
 
   .hero-copy h1 {
-    font-size: clamp(2.4rem, 14vw, 4.2rem);
+    max-width: none;
+    font-size: clamp(2.2rem, 11.5vw, 3.65rem);
+    line-height: 0.96;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-role {
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .hero-summary {
+    margin-top: 1rem;
+    font-size: 0.96rem;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .stat-card {
+    min-height: auto;
+    padding: 1.15rem;
+  }
+
+  .stat-value {
+    font-size: clamp(1.7rem, 9vw, 2.3rem);
+  }
+
+  .hero-panel {
+    gap: 1rem;
+  }
+
+  .portrait-card img {
+    aspect-ratio: 4 / 4.3;
+  }
+
+  .portrait-status,
+  .portrait-footer {
+    max-width: calc(100% - 1rem);
+    padding: 0.58rem 0.72rem;
+    font-size: 0.66rem;
   }
 
   .section-heading {
     grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .section-index {
+    padding-top: 0;
+  }
+
+  .section-heading h2,
+  .contact-panel h2,
+  .contact-terminal h2 {
+    max-width: 100%;
+    margin-top: 0.45rem;
+    font-size: clamp(1.7rem, 9vw, 2.5rem);
+  }
+
+  .section-copy,
+  .contact-panel .section-copy,
+  .contact-terminal-copy {
+    margin-top: 0.75rem;
+    font-size: 0.96rem;
   }
 
   .capability-grid {
     grid-template-columns: 1fr;
+    gap: 0.85rem;
+    margin-top: 1.35rem;
   }
 
-  .button,
+  .stack-grid {
+    gap: 0.85rem;
+    margin-top: 1.35rem;
+  }
+
+  .story-card,
+  .signal-card,
+  .protocol-card,
+  .vision-card,
+  .contact-terminal-body,
+  .capability-card,
+  .stack-card {
+    padding: 1.15rem;
+  }
+
+  .button {
+    width: 100%;
+    min-height: 3.15rem;
+    padding: 0.85rem 1rem;
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+
+  .hero-actions {
+    display: grid;
+  }
+
+  .tag-cluster {
+    gap: 0.6rem;
+    margin-top: 1.35rem;
+  }
+
   .tag,
   .stack-tags span {
-    width: 100%;
-    justify-content: center;
+    width: auto;
+    justify-content: flex-start;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.72rem;
   }
 
-  .hero-actions,
-  .tag-cluster {
-    display: grid;
+  .terminal-header {
+    flex-wrap: wrap;
+    padding: 0.82rem 1rem;
+    font-size: 0.72rem;
+  }
+
+  .terminal-body {
+    padding: 1.05rem 1rem 1.15rem;
   }
 
   .terminal-feed li {
     flex-direction: column;
+    gap: 0.35rem;
   }
 
   .terminal-feed strong {
@@ -1002,5 +1307,108 @@ button {
   .contact-terminal-list li {
     grid-template-columns: 1fr;
     gap: 0.65rem;
+    padding: 0.9rem;
+  }
+
+  .terminal-key {
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
+  }
+
+  .contact-terminal-link,
+  .contact-terminal-muted,
+  .terminal-line,
+  .terminal-response {
+    font-size: 0.9rem;
+  }
+
+  .site-footer {
+    padding: 2.6rem 0 1.5rem;
+  }
+
+  .site-footer p {
+    font-size: 0.7rem;
+    line-height: 1.7;
+  }
+
+  .quick-nav-toggle {
+    right: 0.8rem;
+    bottom: 0.8rem;
+    padding: 0.72rem 0.92rem;
+    font-size: 0.78rem;
+  }
+
+  .quick-nav-panel {
+    right: 0.8rem;
+    bottom: 4.35rem;
+    width: min(210px, calc(100vw - 1.2rem));
+  }
+}
+
+@media (max-width: 480px) {
+  .eyebrow,
+  .section-kicker,
+  .section-index,
+  .contact-label,
+  .signal-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+  }
+
+  .topbar {
+    padding: 0.75rem 0.8rem;
+    top: 0.65rem;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+
+  .hero {
+    padding-top: 6rem;
+  }
+
+  .hero-role {
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+  }
+
+  .story-card,
+  .signal-card,
+  .protocol-card,
+  .vision-card,
+  .contact-terminal-body,
+  .capability-card,
+  .stack-card,
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .contact-terminal-list li {
+    padding: 0.8rem;
+  }
+
+  .terminal-cursor {
+    width: 0.55ch;
+  }
+
+  .quick-nav-toggle {
+    right: 0.7rem;
+    bottom: 0.7rem;
+    gap: 0.5rem;
+    min-height: 2.9rem;
+    padding: 0.68rem 0.85rem;
+  }
+
+  .quick-nav-panel {
+    right: 0.7rem;
+    bottom: 4.1rem;
+    width: min(200px, calc(100vw - 1rem));
+    padding: 0.55rem;
+  }
+
+  .quick-nav-panel a {
+    padding: 0.72rem 0.78rem;
+    font-size: 0.76rem;
   }
 }
